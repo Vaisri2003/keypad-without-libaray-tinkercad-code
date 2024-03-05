@@ -1,0 +1,199 @@
+int c1 = 7, c2 = 6, c3 = 5, c4 = 4;
+int r1 = 13, r2 = 12,r3 = 11, r4 = 10; 
+void setup(){
+  pinMode(c1, INPUT_PULLUP);
+   pinMode(c2, INPUT_PULLUP);
+   pinMode(c3, INPUT_PULLUP);
+   pinMode(c4, INPUT_PULLUP);
+   
+  pinMode(r1, OUTPUT);
+   pinMode(r2, OUTPUT);
+  pinMode(r3, OUTPUT);
+   pinMode(r4, OUTPUT);
+  
+  pinMode(2,OUTPUT);
+   pinMode(3,OUTPUT);
+   pinMode(8,OUTPUT);
+   pinMode(9,OUTPUT);
+  
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  
+  
+  
+  Serial.begin(38400);
+}
+
+void loop()
+{
+  row1();
+  row2();
+  row3();
+  row4();
+  //Serial.println(" Press any Key to see the value:");
+}
+
+void row1()
+{
+  digitalWrite(r1, LOW);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  if(digitalRead(c1)== LOW){//pin 5
+    Serial.println("1");
+    digitalWrite(2,HIGH);
+    digitalWrite(A0,HIGH);
+    delay(600);
+  digitalWrite(2,LOW);
+  digitalWrite(A0,LOW);
+  }
+  
+  else if(digitalRead(c2)== LOW){//pin 4
+    Serial.println("2");
+    digitalWrite(3,HIGH);
+    digitalWrite(A0,HIGH);
+    delay(600);
+    digitalWrite(3,LOW);
+  digitalWrite(A0,LOW);
+  }
+   else if(digitalRead(c3)== LOW){//pin 3
+    Serial.println("3");
+     digitalWrite(8,HIGH);
+     digitalWrite(A0,HIGH);
+    delay(600);
+     digitalWrite(8,LOW);
+  digitalWrite(A0,LOW);
+   }
+   else if(digitalRead(c4)== LOW){
+    Serial.println("A");//pin 2
+ digitalWrite(9,HIGH);
+   digitalWrite(A0,HIGH);
+    delay(600);
+     digitalWrite(9,LOW);
+  digitalWrite(A0,LOW);
+   }
+  
+}
+void row2(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, LOW);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  if(digitalRead(c1) == LOW) {
+    Serial.println("4");
+    digitalWrite(2,HIGH);
+  digitalWrite(A1,HIGH);
+    delay(600);
+  digitalWrite(2,LOW);
+  digitalWrite(A1,LOW);
+  }
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("5");
+    digitalWrite(3,HIGH);
+  digitalWrite(A1,HIGH);
+     delay(600); 
+  digitalWrite(3,LOW);
+  digitalWrite(A1,LOW);
+  }
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("6");
+    digitalWrite(8,HIGH);
+    digitalWrite(A1,HIGH);
+    delay(600);
+    digitalWrite(8,LOW);
+  digitalWrite(A1,LOW);
+  }
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("B");
+    digitalWrite(9,HIGH);
+    digitalWrite(A1,HIGH);
+    delay(600);
+    digitalWrite(9,LOW);
+  digitalWrite(A1,LOW);
+  }
+   
+}
+  
+void row3(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, LOW);
+  digitalWrite(r4, HIGH);
+  
+  if(digitalRead(c1) == LOW){
+    Serial.println("7");
+    digitalWrite(2,HIGH);
+    digitalWrite(A2,HIGH);
+    delay(600);
+  digitalWrite(2,LOW);
+  digitalWrite(A2,LOW);
+  }
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("8");
+    digitalWrite(3,HIGH);
+    digitalWrite(A2,HIGH);
+    delay(600);
+  digitalWrite(3,LOW);
+  digitalWrite(A2,LOW);
+  }
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("9");
+    digitalWrite(8,HIGH);
+    digitalWrite(A2,HIGH);
+    delay(600);
+  digitalWrite(8,LOW);
+  digitalWrite(A2,LOW);
+  }
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("C");
+    digitalWrite(9,HIGH);
+    digitalWrite(A2,HIGH);
+    delay(600);
+  digitalWrite(9,LOW);
+  digitalWrite(A2,LOW);
+  }
+   }
+void row4(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, LOW);
+  if(digitalRead(c1) == LOW){
+    Serial.println("*");
+    digitalWrite(2,HIGH);
+    digitalWrite(A3,HIGH);
+    delay(600);
+  digitalWrite(2,LOW);
+  digitalWrite(A3,LOW);
+  }
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("0");
+    digitalWrite(3,HIGH);
+    digitalWrite(A3,HIGH);
+    delay(600);
+    digitalWrite(3,LOW);
+  digitalWrite(A3,LOW);
+  }
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("#");
+    digitalWrite(8,HIGH);
+    digitalWrite(A3,HIGH);
+   delay(600);
+  digitalWrite(8,LOW);
+  digitalWrite(A3,LOW);
+  }
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("D");
+    digitalWrite(9,HIGH);
+    digitalWrite(A3,HIGH);
+   delay(600);
+  digitalWrite(9,LOW);
+  digitalWrite(A3,LOW);
+    
+  }
+  
+  
+  
+}
